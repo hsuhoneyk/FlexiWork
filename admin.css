@@ -1,0 +1,380 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'IBM Plex Sans', Arial, sans-serif;
+    color: #171A20;
+    background: #F6F5F0;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h1,
+h2 {
+    font-family: 'Space Grotesk', Georgia, serif;
+    font-weight: 600;
+    margin: 0;
+}
+
+.link {
+    color: #0F6E66;
+    text-decoration: underline;
+}
+
+/* ---------- Layout shell ---------- */
+/* Sidebar + main content, side by side. Each admin page wraps its
+   content in <div class="admin-layout"> with <nav class="sidebar">
+   and <main class="admin-main"> inside. */
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    flex-shrink: 0;
+    background: #171A20;
+    color: #FDFDFA;
+    padding: 24px 0;
+}
+
+.sidebar .brand {
+    font-family: 'Space Grotesk', Georgia, serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 0 24px 20px;
+    display: block;
+}
+
+.sidebar .brand span {
+    color: #E15B4D;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar nav a {
+    padding: 10px 24px;
+    color: #B9BCC4;
+    font-size: 0.92rem;
+    border-left: 3px solid transparent;
+}
+
+.sidebar nav a:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.sidebar nav a.active {
+    color: #fff;
+    border-left-color: #E15B4D;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.sidebar .sidebar-foot {
+    margin-top: auto;
+    padding: 16px 24px 0;
+    border-top: 1px solid #2C2F37;
+}
+
+.sidebar .sidebar-foot p {
+    color: #8A8E98;
+    font-size: 0.82rem;
+    margin: 0 0 8px;
+}
+
+.sidebar .sidebar-foot a {
+    color: #B9BCC4;
+    font-size: 0.88rem;
+    
+}
+
+.admin-main {
+    flex: 1;
+    padding: 32px 40px;
+    max-width: 980px;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.admin-header h1 {
+    font-size: 1.5rem;
+}
+
+.admin-header p {
+    color: #565B66;
+    font-size: 0.92rem;
+    margin-top: 4px;
+}
+
+
+/* ---------- Stat cards (admin.php dashboard) ---------- */
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.stat-card {
+    background: #FDFDFA;
+    border: 1px solid #DEDACD;
+    border-radius: 6px;
+    padding: 18px 20px;
+}
+
+.stat-card .num {
+    font-family: 'Space Grotesk', Georgia, serif;
+    font-weight: 700;
+    font-size: 1.7rem;
+}
+
+.stat-card .lbl {
+    color: #565B66;
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
+
+
+/* ---------- Panel (content card wrapper) ---------- */
+.panel {
+    background: #FDFDFA;
+    border: 1px solid #DEDACD;
+    border-radius: 6px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.panel h2 {
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+}
+
+
+/* ---------- Tables ---------- */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.admin-table th {
+    text-align: left;
+    border-bottom: 2px solid #171A20;
+    padding: 8px 10px;
+    font-size: 0.8rem;
+    color: #565B66;
+    font-weight: 600;
+}
+
+.admin-table td {
+    padding: 10px;
+    border-bottom: 1px solid #DEDACD;
+    vertical-align: middle;
+}
+
+.admin-table tr:hover td {
+    background: #FDFDFA;
+}
+
+/* Small role/status pill shown in the users and categories tables. */
+.pill {
+    display: inline-block;
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 999px;
+    background: #FDFDFA;
+    color: #565B66;
+    border: 1px solid #DEDACD;
+}
+
+.pill-admin {
+    background: #FBEAE7;
+    color: #E15B4D;
+    border-color: #F3C9C1;
+}
+
+.pill-employer {
+    background:#E4F0EE ;
+    color: #0F6E66;
+    border-color: #BEDAD6;
+}
+
+.pill-jobseeker {
+    background: #FFF3DC;
+    color: #93650B;
+    border-color: #F1DDA9;
+}
+
+
+/* ---------- Forms ---------- */
+.admin-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+.admin-form .field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.admin-form label {
+    font-size: 0.8rem;
+    color: #565B66;
+}
+
+.admin-form input,
+.admin-form select,
+.admin-form textarea {
+    font-family: inherit;
+    font-size: 0.92rem;
+    padding: 9px 11px;
+    border: 1px solid #DEDACD;
+    border-radius: 4px;
+    background: #FDFDFA;
+    color: #171A20;
+}
+
+.admin-form input:focus,
+.admin-form select:focus,
+.admin-form textarea:focus {
+    outline: 2px solid #0F6E66;
+    outline-offset: 1px;
+}
+
+/* Stacked variant for the settings page, where fields sit one per
+   row instead of inline. */
+.admin-form.stacked {
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 420px;
+}
+
+
+/* ---------- Buttons ---------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 4px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 9px 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: #171A20;
+    color: #FDFDFA;
+}
+
+.btn-primary:hover {
+    background: #000;
+}
+
+.btn-danger {
+    background: transparent;
+    color: #E15B4D;
+    border: 1px solid #F3C9C1;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+}
+
+.btn-danger:hover {
+    background: #FBEAE7;
+}
+
+
+/* ---------- Notices ---------- */
+.notice {
+    padding: 12px 14px;
+    border-radius: 4px;
+    font-size: 0.88rem;
+    margin-bottom: 18px;
+}
+
+.notice ul {
+    margin: 0;
+    padding-left: 18px;
+}
+
+.notice-error {
+    background: #FBEAE7;
+    color: #E15B4D;
+    border: 1px solid #F3C9C1;
+}
+
+.notice-success {
+    background:#E4F0EE ;
+    color: #0F6E66;
+    border: 1px solid #BEDAD6;
+}
+
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+    .admin-layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 16px;
+    }
+
+    .sidebar nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    .sidebar nav a {
+        padding: 8px 12px;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+    }
+
+    .sidebar nav a.active {
+        border-left-color: transparent;
+        border-bottom-color: #E15B4D;
+    }
+
+    .sidebar .sidebar-foot {
+        display: none;
+    }
+
+    .admin-main {
+        padding: 24px 20px;
+    }
+
+    .stat-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .admin-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
